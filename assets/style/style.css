@@ -7,10 +7,7 @@
 
 body {
     width: 80%;
-    height: 100vh;
     margin: 0 auto;
-    overflow: hidden;
-    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 0px 0px 0px -13px rgba(0, 0, 0, 0);
 }
 img, body{
     background-color: rgba(224, 131, 131, 0.1);
@@ -19,8 +16,8 @@ img, body{
 header{
     display: flex;
     width: 100%;
-    padding: 1.2rem;
-    margin-top: 2rem;
+    padding: 2rem;
+    margin-top: 1rem;
     justify-content: space-between;
 }
 
@@ -39,14 +36,18 @@ i{
     border-radius: 50%;
     display:none;
 }
-
 section{
-    display: flex;
-    justify-content:space-between;
     background-color: rgba(224, 131, 131, 0.3);
     height: 100vh;
-    padding: 5rem;
+    
     border-radius: 10px;
+    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 0px 0px 0px -13px rgba(0, 0, 0, 0);
+}
+.flex{
+    display: flex;
+    justify-content:space-between;
+    padding: 2.5rem;
+    padding-top: 2.5rem;
 }
 
 .selecao{
@@ -78,12 +79,11 @@ section{
     display: none;
     text-align: center;
     line-height: 25px;
-    margin-top: -29rem;
-    padding: 2rem;
+    padding: 1rem;
 }
 
-.lista-carrinho span{
-    position: fixed;
+.lista-carrinho > span{
+    position: absolute;
     right: 12%;
     background-color: rgb(136, 130, 130);
     padding: 5px;

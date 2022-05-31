@@ -20,47 +20,49 @@
     </header>
 
     <section>
-        <div class="produtos">
-            <h3>Camisa</h3>
-            <h4 style= "padding: 2rem;">Valor : R$ 10,00</h4>
-            <img src="assets/images/camisa.jpg" alt="" width="175px" height="225px">
-            <div class="selecao">
-                <span>Qtd</span>
-                <button onclick="decrement();">-</button>
-                <span id="qtdi">0</span>
-                <button onclick="increment();">+</button>                
+        <div class="flex">
+            <div class="produtos">
+                <h3>Camisa</h3>
+                <h4 style= "padding: 2rem;">Valor : R$ 10,00</h4>
+                <img src="assets/images/camisa.jpg" alt="" width="175px" height="225px">
+                <div class="selecao">
+                    <span>Qtd</span>
+                    <button onclick="decrement();">-</button>
+                    <span id="qtdi">0</span>
+                    <button onclick="increment();">+</button>                
+                </div>
+                <button class = "carrinho">Adicionar ao carrinho</button>
             </div>
-            <button class = "carrinho">Adicionar ao carrinho</button>
+            <div class="produtos">
+                <h3>Calça</h3>
+                <h4 style= "padding: 2rem;">Valor : R$ 20,00</h4>
+                <img src="assets/images/calça.jpg" alt="" width="175px" height="225px">
+                <div class="selecao">
+                    <span>Qtd</span>
+                    <button onclick="decrementOne();">-</button>
+                    <span>0</span>
+                    <button onclick="incrementOne();">+</button>                
+                </div>
+                <button class = "carrinho">Adicionar ao carrinho</button>
+            </div>
+            <div class="produtos">
+                <h3>Sapato</h3>
+                <h4 style= "padding: 2rem;">Valor : R$ 40,00</h4>
+                <img src="assets/images/sapato.jpg" alt="" width="175px" height="225p1x">
+                <div class="selecao">
+                    <span>Qtd</span>
+                    <button onclick="decrementTwo();">-</button>
+                    <span>0</span>
+                    <button onclick="incrementTwo();">+</button>                
+                </div>
+                <button class = "carrinho">Adicionar ao carrinho</button>
+            </div>
         </div>
-        <div class="produtos">
-            <h3>Calça</h3>
-            <h4 style= "padding: 2rem;">Valor : R$ 20,00</h4>
-            <img src="assets/images/calça.jpg" alt="" width="175px" height="225px">
-            <div class="selecao">
-                <span>Qtd</span>
-                <button onclick="decrementOne();">-</button>
-                <span>0</span>
-                <button onclick="incrementOne();">+</button>                
-            </div>
-            <button class = "carrinho">Adicionar ao carrinho</button>
-        </div>
-        <div class="produtos">
-            <h3>Sapato</h3>
-            <h4 style= "padding: 2rem;">Valor : R$ 40,00</h4>
-            <img src="assets/images/sapato.jpg" alt="" width="175px" height="225p1x">
-            <div class="selecao">
-                <span>Qtd</span>
-                <button onclick="decrementTwo();">-</button>
-                <span>0</span>
-                <button onclick="incrementTwo();">+</button>                
-            </div>
-            <button class = "carrinho">Adicionar ao carrinho</button>
+        <div class="lista-carrinho">
+            <span id="close">x</span>
         </div>
     </section>
     
-    <div class="lista-carrinho">
-      <span id="close">x</span>
-    </div>
 
     <script src="assets/js/main.js"></script>
 </body>
