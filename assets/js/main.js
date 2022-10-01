@@ -1,54 +1,47 @@
-const addCarrinho = document.getElementsByClassName('carrinho')[0]
-const addCarrinhoOne = document.getElementsByClassName('carrinho')[1]
-const addCarrinhoTwo = document.getElementsByClassName('carrinho')[2]
+
+const janelaItem = document.querySelector('.janela')
+const produtos = document.querySelectorAll('.produtos');
+const addCarrinho = document.getElementsByClassName('carrinho_botao')[0]
+const addCarrinhoOne = document.getElementsByClassName('carrinho_botao')[1]
+const addCarrinhoTwo = document.getElementsByClassName('carrinho_botao')[2]
 const produtosCarrinho = document.getElementsByClassName('lista-carrinho')[0]
 const closeCar = document.querySelector('#close')
-let spanQtdItem = document.getElementsByTagName('span')[2];
-let spanQtdItemOne = document.getElementsByTagName('span')[4];
-let spanQtdItemTwo = document.getElementsByTagName('span')[6];
+let spanQtdItem = document.getElementById('qtdi');
 let qtdItem = document.getElementById('qtditens');
 
 
-const camisa = {nome : "Camisa",preço : 10,}
+const camisa = {
+    nome : "Camisa",
+    preço : 10,
+
+}
 const calca = {nome : "Calça",preço : 20,}
 const sapato = {nome : "Sapato",preço : 40,}
 
+produtos.forEach((item) => {
+
+    item.addEventListener('click', () => {
+        
+        janelaItem.style.display = 'block'
+        item.classList.add('show');
+        item.querySelector('.carrinho').classList.add('show_quantidades');
+    });
+})
+
 function decrement(){
-  if(spanQtdItem.textContent > 0){
+
+    if(spanQtdItem.textContent > 0){
       spanQtdItem.textContent--;
-      removeCamisa();
-      attLista();
+    //   removeCamisa();
+    //   attLista();
     } 
 }
 function increment(){
      spanQtdItem.textContent++; 
-     addCamisa();
-     attLista();
+    //  addCamisa();
+    //  attLista();
 }
-function decrementOne(){
-  if(spanQtdItemOne.textContent > 0){
-      spanQtdItemOne.textContent--;
-      attLista();
-      removeCalca();
-    } 
-}
-function incrementOne(){
-     spanQtdItemOne.textContent++;
-     attLista();
-     addCalca();
-}
-function decrementTwo(){
-  if(spanQtdItemTwo.textContent > 0){
-      spanQtdItemTwo.textContent--;
-      attLista();
-      removeSapato();
-    } 
-}
-function incrementTwo(){
-     spanQtdItemTwo.textContent++;
-     attLista();
-     addSapato();
-}
+
 
 function attLista(){
    produtosCarrinho.style.display = 'none';
@@ -211,3 +204,29 @@ const camisaLista = document.getElementsByClassName('novaCamisa')[0];
     qtdItem.textContent = 0;
     attLista();
 })
+
+
+// function decrementOne(){
+//   if(spanQtdItemOne.textContent > 0){
+//       spanQtdItemOne.textContent--;
+//       attLista();
+//       removeCalca();
+//     } 
+// }
+// function incrementOne(){
+//      spanQtdItemOne.textContent++;
+//      attLista();
+//      addCalca();
+// }
+// function decrementTwo(){
+//   if(spanQtdItemTwo.textContent > 0){
+//       spanQtdItemTwo.textContent--;
+//       attLista();
+//       removeSapato();
+//     } 
+// }
+// function incrementTwo(){
+//      spanQtdItemTwo.textContent++;
+//      attLista();
+//      addSapato();
+// }
