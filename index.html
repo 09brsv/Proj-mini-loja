@@ -29,7 +29,7 @@
       </h1>
       <div id="cesta">
         <i class="fa-solid fa-basket-shopping">
-          <span id="qtditens"></span>
+          <span id="qtditens">0</span>
         </i>
       </div>
     </header>
@@ -45,6 +45,7 @@
     </div>
     <section>
       <div class="flex">
+        <span>X</span>
         <div class="produtos">
           <h3>Camisa</h3>
           <h4 style="padding: 2rem">Valor : R$ 10,00</h4>
@@ -66,7 +67,7 @@
           </div> -->
           <div class="carrinho">
             <span>X</span>
-            <button class="carrinho_botao" onclick="addCarrinho('camisas')">
+            <button class="carrinho_botao">
               Adicionar ao carrinho
             </button> 
           </div>
@@ -82,17 +83,17 @@
             height="225px"
           />
           
-          <div class="quantidade">
+          <!-- <div class="quantidade">
             <span>Qtd</span>
             <button onclick="decrement('calcas');">-</button>
             <span class="span-qtd">0</span>
-            <button onclick="increment('calcas');">+</button>
-            <div class="carrinho">
-              <button class="carrinho_botao" onclick="addCarrinho('calcas')">
-                Adicionar ao carrinho
-              </button> 
-            </div>
-        </div>
+            <button onclick="increment('calcas');">+</button> -->
+          <div class="carrinho">
+            <button class="carrinho_botao">
+              Adicionar ao carrinho
+            </button> 
+          </div>
+        <!-- </div> -->
    
         </div>
         <div class="produtos">
@@ -105,23 +106,24 @@
             height="225px"
           />
           
-          <div class="quantidade">
+          <!-- <div class="quantidade">
             <span>Qtd</span>
             <button onclick="decrement('sapatos');">-</button>
             <span class="span-qtd">0</span>
-            <button onclick="increment('sapatos');">+</button>
-            <button class="carrinho_botao" onclick="addCarrinho('sapatos')">
+            <button onclick="increment('sapatos');">+</button> -->
+          <div class="carrinho">
+            <button class="carrinho_botao">
               Adicionar ao carrinho
             </button> 
           </div>
        
-        </div>
-      </div>
-      <div class="lista-carrinho">
-        <span id="close">x</span>
+        <!-- </div> -->
       </div>
     </section>
-
+    
+    <div class="lista-carrinho">
+    <span id="close">x</span>
+    </div>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
