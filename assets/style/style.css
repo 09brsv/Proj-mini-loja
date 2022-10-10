@@ -184,8 +184,23 @@ section .selected .carrinho {
 .lista-carrinho {
   display: none;
   text-align: center;
+  justify-content: center;
+  flex-direction: column;
   line-height: 25px;
   padding: 1rem;
+}
+
+.lista-carrinho.show {
+  z-index : 90;
+}
+.lista-carrinho span.adicionar, .lista-carrinho span.remover{
+  cursor: pointer;
+  text-decoration: underline;
+  color: #fff;
+  margin-left: 5rem
+}
+.lista-carrinho span.adicionar{
+  margin-left: 11rem
 }
 
 .lista-carrinho > span {
@@ -198,6 +213,6 @@ section .selected .carrinho {
   color: #fff;
 }
 
-.lista-carrinho.show {
-  z-index : 90;
+.lista-carrinho p {
+  padding: 0.5rem;
 }
