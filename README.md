@@ -24,10 +24,10 @@ Este projeto foi feito especialmente para treinar e fixar conceitos que venho ap
 
 <br>
 
-## Em desenvolvimento ... 🚀🚀
+## Em processo de refatoração ... 🚀🚀
 <br>
 
-- [ ] Refatorar o código.
+- [ x ] Refatorando o código....
 - [ ] Estilizar a página.
 - [ ] Criar formas de pagamento.
 
@@ -42,4 +42,4 @@ Este projeto foi feito especialmente para treinar e fixar conceitos que venho ap
 
 ## Contato ✉
 
->Para dúvidas, críticas ou sugestões, me envie um [Email](mailto:brunoornelio@hotmail.com)
+>Para dúvidas, críticas ou sugestões, me envie um [Email](mailto: devbrunobatista@gmail.com)
