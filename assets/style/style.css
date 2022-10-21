@@ -141,17 +141,17 @@ section .selected .carrinho {
   padding-top: 2.5rem;
 }
 
-.flex span {
+section span {
   display: none;
   position: absolute;
-  z-index: 60;
+  z-index: 90;
   cursor: pointer;
   background-color:#fff;
   padding: 0.35rem 0.5rem;
   border-radius: 50%;
 }
 
-.flex span:hover {
+section span:hover {
   background-color:  rgba(199, 224, 131, 0.9);
   transform: scale(1.1);
   transition: all 0.2s
@@ -191,9 +191,13 @@ section .selected .carrinho {
 }
 
 .lista-carrinho.show {
-  z-index : 90;
+  z-index : 80;
 }
-.lista-carrinho span.adicionar, .lista-carrinho span.remover{
+.lista-carrinho span.adicionar,
+.lista-carrinho span.remover,
+.lista-carrinho strong.adicionar,
+.lista-carrinho strong.remover
+{
   cursor: pointer;
   text-decoration: underline;
   color: #fff;

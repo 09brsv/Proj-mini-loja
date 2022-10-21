@@ -1,9 +1,9 @@
-const fecharJanela = document.querySelector('.flex span');
+const fecharJanela = document.querySelector('section span');
 const janelaItem = document.querySelector('.janela');
 const produtos = document.querySelectorAll('.produtos');
 
 // const addCarrinho = document.getElementsByClassName('carrinho_botao')
-const listaCarrinho = document.getElementsByClassName('lista-carrinho')[0]
+const listaCarrinho = document.querySelector('.lista-carrinho')
 const closeCar = document.querySelector('#close');
 let spanQtdItem = document.getElementById('qtdi');
 let qtdItem = document.getElementById('qtditens');
@@ -28,7 +28,6 @@ const lista = {
        
    ],
 
-   quantidadeItems : [0],
 
    addCarrinho: function(nomeItem) {
 
@@ -41,13 +40,9 @@ const lista = {
 
          if (item.nome === nomeItem) {
              
-             if (item.quantidade) {
-     
-                 item.quantidade += 1
-             } else{
+             if (!item.quantidade) {
      
                  item.quantidade = 1;
-                 // lista.quantidadeItems.push(1)
                  qtdItem.textContent = Number(qtdItem.textContent) + 1
              }
              
@@ -60,7 +55,6 @@ const lista = {
          
      }
   },
-    //  console.log(item.quantidade)
 
     removeCarrinho : function(nomeItem) {
         
@@ -69,10 +63,10 @@ const lista = {
             if (item.nome === nomeItem) {
 
                 item.qtdVolumes -= 1
-                console.log(item)
+                
+                this.attCestaItems(item, true)
             }
 
-            this.attCestaItems(item)
         }
     },
    
@@ -93,15 +87,15 @@ const lista = {
                     
                     if (x.getElementsByClassName(nome)[0]) {
 
-                        verificarSeTemItem.querySelector('b').innerHTML = `Quantidade: ${qtdVolumes} Total: ${total}`
+                        verificarSeTemItem.querySelector('b').innerHTML = `Quantidade: ${qtdVolumes} Total: ${total} <span class="remover" onclick="lista.removeCarrinho('${nome}')">remover</span>`
                         console.log('xau')
                     }else {
 
                         produtoCarrinho.classList.add(nome);
                         listaCarrinho.appendChild(produtoCarrinho);
-                        produtoCarrinho.innerHTML = `<br /> <p> Produto : ${nome} <span class="adicionar">adicionar</span></p>`
+                        produtoCarrinho.innerHTML = `<br /> <p> Produto : ${nome} <strong class="adicionar">adicionar</strong></p>`
                         produtoCarrinho.appendChild(novoValor);
-                        novoValor.innerHTML = `<b> Quantidade: ${qtdVolumes} Total: ${total} <span class="remover">remover</span></b> <br />`
+                        novoValor.innerHTML = `<b> Quantidade: ${qtdVolumes} Total: ${total} <span class="remover" onclick="lista.removeCarrinho('${nome}')">remover</span></b> <br />`
                         console.log('oi')
                     }
                 })
@@ -131,25 +125,27 @@ produtos.forEach((item) => {
         .addEventListener('click',lista.addCarrinho(item.querySelector('h3').textContent));
     });
 
-    fecharJanela.addEventListener('click', () => {
-    
-        item.classList.remove('show')
-        fecharJanela.style.display = 'none';
-        janelaItem.style.display = 'none';
-        item.querySelector('.carrinho').classList.remove('show_quantidades');
-    })
+    fecharJanela.addEventListener('click', () => fecharJanelaCompra(item))
 }); 
 
 qtdItem.addEventListener('click', () => {
 
     listaCarrinho.classList.add('show');
-    document.querySelector('.flex').style.display = 'none';
+    fecharJanela.style.display = 'block';
+
 })
 
 closeCar.addEventListener('click', function () {
-    lista.removeCarrinho('Camisa')
+    // console.log(document.querySelector('body').querySelectorAll('.show').forEach((e => e.classList.remove('show'))));
 })
 
+function fecharJanelaCompra(el){
+        listaCarrinho.classList.remove('show');
+        el.classList.remove('show')
+        fecharJanela.style.display = 'none';
+        janelaItem.style.display = 'none';
+        el.querySelector('.carrinho').classList.remove('show_quantidades');
+}
 
 function decrement(){
 
