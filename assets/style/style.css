@@ -40,7 +40,7 @@ i {
   right: 5px;
   font-size: 10px;
   background-color: rgb(224, 131, 131);
-  padding: 0.2rem;
+  padding: 0.3rem;
   border-radius: 50%;
   display: none;
 }
@@ -67,7 +67,7 @@ i {
   margin: 1rem
 }
 .janela .selecao button {
-  margin: 1rem auto;
+  margin: 0.5rem auto;
   width: 50%;
   /* padding: 0.2rem 0.7rem; */
   border: none
