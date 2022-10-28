@@ -2,7 +2,7 @@ const fecharJanela = document.querySelector('section span');
 const janelaItem = document.querySelector('.janela');
 const produtos = document.querySelectorAll('.produtos');
 const listaCarrinho = document.querySelector('.lista-carrinho');
-const total = document.querySelector('#total');
+const totalCompra = document.querySelector('#total');
 let spanQtdItem = document.getElementById('qtdi');
 let qtdItem = document.getElementById('qtditens');
 
@@ -128,7 +128,7 @@ const lista = {
 
         if (!total) total.style.display = 'none';
         total && add ? lista.total += total : lista.total -= total;
-        total.textContent = `Total: ${lista.total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`;
+        totalCompra.textContent = `Total: ${lista.total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`;
     }
     
 }
