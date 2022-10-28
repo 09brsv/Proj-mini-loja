@@ -2,10 +2,10 @@ const fecharJanela = document.querySelector('section span');
 const janelaItem = document.querySelector('.janela');
 const produtos = document.querySelectorAll('.produtos');
 const listaCarrinho = document.querySelector('.lista-carrinho');
-const closeCar = document.querySelector('#close');
+const total = document.querySelector('#total');
 let spanQtdItem = document.getElementById('qtdi');
 let qtdItem = document.getElementById('qtditens');
-let totalProduto = [];
+
 const lista = {
 
     carrinho : [
@@ -26,6 +26,7 @@ const lista = {
        
    ],
 
+   total: 0,
 
    addCarrinho: function(nomeItem, add) {
     
@@ -38,21 +39,23 @@ const lista = {
          if (item.nome === nomeItem) {
              
              item.qtdVolumes ? item.qtdVolumes += Number(spanQtdItem.textContent) : item.qtdVolumes = Number(spanQtdItem.textContent);
+             
+             item.qtdItemAdd = Number(spanQtdItem.textContent)
+
              spanQtdItem.textContent = 0;
-             
+
              if (!item.quantidade) {
-     
-                 item.quantidade = 1;
-                 this.attCestaQtd(item.quantidade)
-                //  qtdItem.textContent = Number(qtdItem.textContent) + 1
-             }
-             
 
-             if (add) {
+                item.quantidade = 1;
+                this.attCestaQtd(item.quantidade)
+            }
+                
+            if (add != 'atacado') {
                 item.qtdVolumes += 1
-             }
-
-             this.attCestaItems(item,'adicionar')
+            }
+                
+             
+             this.attCestaItems(item,add)
         }
          
      }
@@ -64,19 +67,16 @@ const lista = {
 
             if (item.nome === nomeItem) {
 
-                item.qtdVolumes ? item.qtdVolumes -= 1 : item.qtdVolumes = 0
-                 
-                if(item.quantidade) {
+                item.qtdVolumes -= 1
+                if (!item.qtdVolumes) item.quantidade -= 1;
 
-                    item.quantidade -= 1
-                }
                 this.attCestaItems(item)
             }
 
         }
     },
    
-   attCestaItems : function({ nome, preco, qtdVolumes, qtd },add) {
+   attCestaItems : function({ nome, preco, qtdVolumes, qtd, qtdItemAdd },add) {
        
        for (const item of this.carrinho) {
            
@@ -91,7 +91,7 @@ const lista = {
                     const novoValor = document.createElement('p');
                     const verificarSeTemItem = x.getElementsByClassName(nome)[0];
                     
-                    this.calcularTotal(qtdVolumes * preco, add)
+                    add != 'atacado' ? this.calcularTotal(preco, add) : this.calcularTotal(qtdItemAdd * preco, add)
 
                     if (!qtdVolumes) {
                         x.removeChild(verificarSeTemItem);
@@ -117,8 +117,8 @@ const lista = {
     },
 
     attCestaQtd : (qtd) => {
-        
         qtd ? qtdItem.textContent = Number(qtdItem.textContent) + 1 : qtdItem.textContent -= 1
+
         if (qtdItem.textContent == 0) {
             qtdItem.style.display = 'none';  
         }
@@ -126,9 +126,9 @@ const lista = {
 
     calcularTotal : (total,add) => {
 
-        if (!total) closeCar.style.display = 'none';
-        total && add ? totalProduto += total : totalProduto -= total;
-        closeCar.textContent = `Total: ${totalProduto.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`;
+        if (!total) total.style.display = 'none';
+        total && add ? lista.total += total : lista.total -= total;
+        total.textContent = `Total: ${lista.total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`;
     }
     
 }
@@ -147,7 +147,7 @@ produtos.forEach((item) => {
     });
     
     item.querySelector('.carrinho_botao')
-    .addEventListener('click', () => lista.addCarrinho(item.querySelector('h3').textContent));
+    .addEventListener('click', () => lista.addCarrinho(item.querySelector('h3').textContent, 'atacado'));
     
     fecharJanela.addEventListener('click', () => fecharJanelaCompra(item))
 }); 
@@ -159,9 +159,6 @@ qtdItem.addEventListener('click', () => {
 
 })
 
-closeCar.addEventListener('click', function () {
-    // console.log(document.querySelector('body').querySelectorAll('.show').forEach((e => e.classList.remove('show'))));
-})
 
 function fecharJanelaCompra(el){
         spanQtdItem.textContent = 0
